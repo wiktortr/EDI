@@ -1,0 +1,54 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #030008 !important;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+p.h1 {
+    color: #3672bb;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+p.h2 {
+    color: #3672bb;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+#main {
+    height: 100vh;
+}
+.card-image {
+    max-width: 400px;
+    width: 100%;
+    box-shadow: -2px 4px 13px -4px #c7c7c7;
+    border-radius: 50%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+.card-box {
+    border-radius: 5px;
+    box-shadow: 4px 6px 12px -9px #c7c7c7;
+    background: linear-gradient(#030008, #030106) padding-box, linear-gradient(to right, #3672bb, #114482, #0b2b51) border-box;
+    border-radius: 7px;
+    border: 4px solid transparent;
+}
+#special {
+    transform: scale(1.09);
+}
+.card-role {
+    background: linear-gradient(#3672bb,#7d2ff4);
+    width: max-content;
+    min-width: 80px;
+}
+.card-role-text {
+    color: rgb(224, 222, 222);
+}
