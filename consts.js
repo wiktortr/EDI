@@ -26,3 +26,5 @@ export const CHART_2_DATASETS = [
   datasetGenerator('Niemcy', YEARS.length, 2, 10),
   datasetGenerator('Włochy', YEARS.length, 1, 7),
 ];
+
+export const API_URL = 'https://my.api.mockaroo.com/players.json?key=a2166ce0';

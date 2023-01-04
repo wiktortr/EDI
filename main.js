@@ -6,53 +6,11 @@ import {
   API_URL,
 } from './consts.js';
 import { chartBuilder } from './utils.js';
+import { tableBuilder } from './table.js';
 
 async function getPlayersData() {
   const data = await fetch(API_URL);
   return await data.json();
-}
-
-function capitalize(string) {
-  return string[0].toUpperCase() + string.slice(1).toLowerCase();
-}
-
-function createTableHeaderNames(data) {
-  return Object.keys(data[0])
-    .map((h) => h.replaceAll('_', ' '))
-    .map(capitalize);
-}
-
-function createHeaderElement(header) {
-  const th = document.createElement('th');
-  th.innerText = header;
-  th.setAttribute('scope', 'col');
-  return th;
-}
-
-function createTableDataElement(tableData) {
-  const td = document.createElement('td');
-  td.innerHTML = tableData;
-  return td;
-}
-
-function createRow(rowData) {
-  const tr = document.createElement('tr');
-  Object.values(rowData)
-    .map(createTableDataElement)
-    .forEach((el) => tr.appendChild(el));
-
-  return tr;
-}
-
-function createTable(data) {
-  const tableHeadersElement = document.getElementById('table_headers');
-  const tableBody = document.getElementById('table_body');
-
-  createTableHeaderNames(data)
-    .map(createHeaderElement)
-    .forEach((el) => tableHeadersElement.append(el));
-
-  data.map(createRow).forEach((row) => tableBody.append(row));
 }
 
 function hideSpinner() {
@@ -60,7 +18,7 @@ function hideSpinner() {
 }
 
 getPlayersData().then((data) => {
-  createTable(data);
+  tableBuilder(data);
   hideSpinner();
 });
 
