@@ -58,9 +58,6 @@ img {
   border-radius: 7px;
   border: 4px solid transparent;
 }
-#special {
-  transform: scale(1.09);
-}
 .card-role {
   background: linear-gradient(var(--font-primary), #7d2ff4);
   width: max-content;
