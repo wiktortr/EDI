@@ -21,7 +21,7 @@ Każdy tworzy dla siebie brancha o nazwie `task-[numer zadania]` tam sobie dzia�
 
 [Dev Note] Wszystkie libki ciągniemy przez cdn’a
 
-- [JQuery](https://jquery.com) – nie będziemy bezpośrednio orać po dom’ie
+- ~~[JQuery](https://jquery.com) – nie będziemy bezpośrednio orać po dom’ie~~ jednak orzemy bezpośrednio po dom'ie
 - [Chart.Js](https://www.chartjs.org) – musimy mieć jakieś charty więc no… ten libek jest dosyć prosty w obsłudze
 - [Bootstrap](https://getbootstrap.com) – coś musi nam pomóc w tym żeby to nie wyglądało jak gówno
 
