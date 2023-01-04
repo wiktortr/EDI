@@ -13,6 +13,13 @@
   - Jakieś foty z podpisem i rolą
   - Stopka
 
+## Jak odpalić kod lokalnie
+
+```bash
+npm i -g http-server  # instalacja serwera
+http-server . -c-1    # odpalenie serwera
+```
+
 ## Zasady kodowania
 
 Każdy tworzy dla siebie brancha o nazwie `task-[numer zadania]` tam sobie działamy po czym tworzymy PR, żebym Dev-Lead mógł sprawdzić co idzie do `main` brancha.
