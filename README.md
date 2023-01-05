@@ -13,7 +13,7 @@
   - Jakieś foty z podpisem i rolą
   - Stopka
 
-## Jak odaplić kod lokalnie
+## Jak odpalić kod lokalnie
 
 ```bash
 npm i -g http-server  # instalacja serwera
