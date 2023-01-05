@@ -21,7 +21,6 @@ getPlayersData().then((data) => {
   tableBuilder(data);
   hideSpinner();
 });
-
 chartBuilder(
   document.getElementById('chart1'),
   'bar',
