@@ -6,31 +6,30 @@ import {
   API_URL,
 } from './consts.js';
 import { chartBuilder } from './utils.js';
-import { tableBuilder } from './table.js';
+import { appendToTable, getTableData, tableBuilder } from './table.js';
 
-async function getPlayersData() {
-  const data = await fetch(API_URL);
-  return await data.json();
-}
+(async () => {
+  chartBuilder(
+    document.getElementById('chart1'),
+    'bar',
+    COUNTRIES,
+    CHART_1_DATASETS
+  );
 
-function hideSpinner() {
+  chartBuilder(
+    document.getElementById('chart2'),
+    'line',
+    YEARS,
+    CHART_2_DATASETS
+  );
+
+  const showMoreData = document.getElementById('showMoreData');
+  const data = await getTableData(API_URL);
+  tableBuilder(data.slice(0, 10));
   document.getElementById('spinner').style.visibility = 'hidden';
-}
 
-getPlayersData().then((data) => {
-  tableBuilder(data);
-  hideSpinner();
-});
-chartBuilder(
-  document.getElementById('chart1'),
-  'bar',
-  COUNTRIES,
-  CHART_1_DATASETS
-);
-
-chartBuilder(
-  document.getElementById('chart2'),
-  'line',
-  YEARS,
-  CHART_2_DATASETS
-);
+  showMoreData.onclick = () => {
+    appendToTable(data.slice(10, 100));
+    showMoreData.style.visibility = 'hidden';
+  };
+})();
