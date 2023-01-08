@@ -1,3 +1,6 @@
-#table_headers th {
-    color: #2f2fcd;
+body,html {
+  overflow-x: hidden;
+}
+.lead {
+  font-size: 1rem;
 }

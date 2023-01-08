@@ -30,13 +30,27 @@ function createRow(rowData) {
   return tr;
 }
 
-export function tableBuilder(data) {
+export function tableBuilder(rows) {
   const tableHeadersElement = document.getElementById('table_headers');
-  const tableBody = document.getElementById('table_body');
 
-  createTableHeaderNames(data)
+  createTableHeaderNames(rows)
     .map(createHeaderElement)
     .forEach((el) => tableHeadersElement.append(el));
 
-  data.map(createRow).forEach((row) => tableBody.append(row));
+  appendToTable(rows);
 }
+
+export const appendToTable = (rows) => {
+  const tableBody = document.getElementById('table_body');
+  rows.map(createRow).forEach((row) => tableBody.append(row));
+};
+
+export const getTableData = async (api_url, storageKey = 'table_data') => {
+  const cachedData = localStorage.getItem(storageKey);
+  if (cachedData) {
+    return JSON.parse(cachedData);
+  }
+  const data = await (await fetch(api_url)).json();
+  localStorage.setItem(storageKey, JSON.stringify(data));
+  return data;
+};
