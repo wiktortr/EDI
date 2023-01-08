@@ -1,17 +1,18 @@
 # EDI Final Group Project
 
-## Jak ma wyglądać projekt:
+## Jak będzie wyglądać nasza strona:
 
 - Main page:
-  - Navbar
+  - Navbar (dla sprawnej nawigacji po stronie)
+  - Tytuł projektu, nasze imiona i nazwiska (dodamy łącze do zakładki "About Us")
   - Opis projektu
-  - Tabelka z danymi
-  - Charty
+  - Tabelka z danymi (rozwijana)
+  - Charty i ich opis
   - Stopka
 
 - Natomiast w "About Us" zawrzemy:
   - Navbar
-  - Zdjęcia i krótkie przedstawienie członków zespołu (ich funkcje i linki do ich Git'a)
+  - Zdjęcia i krótkie przedstawienie członków zespołu (ich funkcje i linki do ich kont na Github)
   - Stopka
 
 ## Jak odpalić kod lokalnie
@@ -29,14 +30,14 @@ Każdy tworzy dla siebie brancha o nazwie `task-[numer zadania]` tam sobie dzia�
 
 [Dev Note] Wszystkie biblioteki ściągamy przez cdn’a
 
-- ~~[JQuery](https://jquery.com) – nie będziemy bezpośrednio orać po dom’ie~~ jednak orzemy bezpośrednio po dom'ie
+- ~~[JQuery](https://jquery.com) – nie będziemy bezpośrednio orać po dom’ie~~ jednak będziemy (;D)
 - [Chart.Js](https://www.chartjs.org) – ta biblioteka jest przydatna w kontekście tworzenia chartów
 - [Bootstrap](https://getbootstrap.com) – dla lepszego wyglądu strony
 
 ## Tasks
 
 **Task-1**: Stworzyć API w mockaroo.com\
-AC: API powinien zwracać 100 wierszy w formacie JSON. Po wykonaniu zadania powinien pojawić się plik `api_info.txt`, w tym pliku musi się znajdować link do danego API. Warto nadmiar wierszy "zwinąć" i stworzyć przycis, który pozwoli ainteresowanej osobie sobie to rozwinąć.
+AC: API powinien zwracać 100 wierszy w formacie JSON. Po wykonaniu zadania powinien pojawić się plik `api_info.txt`, w tym pliku musi się znajdować link do danego API. 
 
 **Task-2**: Stworzyć navbar\
 AC: navbar powinien posiadać odnośniki do wszystkich sekcji wraz z odnośnikiem do podstrony `about_us.html`. Kod powinien znajdować się w plikach `index.html` i `about_us.html`.
@@ -45,10 +46,10 @@ AC: navbar powinien posiadać odnośniki do wszystkich sekcji wraz z odnośnikie
 AC: na stronie powinien znajdować się opis projektu w pliku `index.html, możemy dodać jakieś zdjęcie, które będzie korespondować z tematyką projektu
 
 **Task-4:** Stworzyć tabelkę z danymi z API\
-AC: Po załadowaniu strony powinien pójść strzał do API przez ajaxa, po otrzymaniu danych powinny one zostać wyświetlone w formie tabelki. Kod trzeba umieścić w `index.html` i `main.js`.
+AC: Po załadowaniu strony powinien pójść strzał do API przez ajaxa, po otrzymaniu danych powinny one zostać wyświetlone w formie tabelki. Warto nadmiar wierszy "zwinąć" i stworzyć przycisk, który pozwoli zainteresowanej osobie to rozwinąć. Kod trzeba umieścić w `index.html` i `main.js`.
 
 **Task-5**: Stworzyć charty\
-AC: Po załadowaniu strony powinny się pojawić dwa charty (liniowy, słupkowy) z danymi. Kod trzeba umieścić w `index.html` i `main.js`.
+AC: Po załadowaniu strony powinny się pojawić dwa charty (liniowy, słupkowy) z danymi. Tworzymy też ich opisy. Kod trzeba umieścić w `index.html` i `main.js`.
 
 **Task-6**: Stworzyć stopkę\
 (task dla zwiększenia atrakcyjności i profesjonalnego wyglądu strony)
