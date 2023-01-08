@@ -30,7 +30,7 @@ Każdy tworzy dla siebie brancha o nazwie `task-[numer zadania]` tam sobie dzia�
 
 [Dev Note] Wszystkie biblioteki ściągamy przez cdn’a
 
-- ~~[JQuery](https://jquery.com) – nie będziemy bezpośrednio orać po dom’ie~~ jednak będziemy (;D)
+- [JQuery](https://jquery.com) – bezpośrednio w dom'ie
 - [Chart.Js](https://www.chartjs.org) – ta biblioteka jest przydatna w kontekście tworzenia chartów
 - [Bootstrap](https://getbootstrap.com) – dla lepszego wyglądu strony
 
