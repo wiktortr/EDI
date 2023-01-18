@@ -27,4 +27,9 @@ export const CHART_2_DATASETS = [
   datasetGenerator('Włochy', YEARS.length, 1, 7),
 ];
 
-export const API_URL = 'https://my.api.mockaroo.com/players.json?key=a2166ce0';
+export const API_URL_BASE =
+  'https://raw.githubusercontent.com/wiktortr/EDI/main/jsons/players';
+
+export const DATA_FORMAT = 'json';
+
+export const NUMBER_OF_DATASETS = 3;

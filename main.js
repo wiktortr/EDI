@@ -3,10 +3,28 @@ import {
   CHART_1_DATASETS,
   YEARS,
   CHART_2_DATASETS,
-  API_URL,
 } from './consts.js';
-import { chartBuilder } from './utils.js';
-import { appendToTable, getTableData, tableBuilder } from './table.js';
+import { chartBuilder, getNextApiUrl } from './utils.js';
+import {
+  appendToTable,
+  clearTable,
+  getTableData,
+  tableBuilder,
+} from './table.js';
+
+const createTable = async () => {
+  clearTable();
+  document.getElementById('spinner').style.visibility = '';
+  const showMoreData = document.getElementById('showMoreData');
+  const data = await getTableData(getNextApiUrl());
+  tableBuilder(data.slice(0, 10));
+  document.getElementById('spinner').style.visibility = 'hidden';
+
+  showMoreData.onclick = () => {
+    appendToTable(data.slice(10, 100));
+    showMoreData.style.visibility = 'hidden';
+  };
+};
 
 (async () => {
   chartBuilder(
@@ -23,13 +41,9 @@ import { appendToTable, getTableData, tableBuilder } from './table.js';
     CHART_2_DATASETS
   );
 
-  const showMoreData = document.getElementById('showMoreData');
-  const data = await getTableData(API_URL);
-  tableBuilder(data.slice(0, 10));
-  document.getElementById('spinner').style.visibility = 'hidden';
+  await createTable();
 
-  showMoreData.onclick = () => {
-    appendToTable(data.slice(10, 100));
-    showMoreData.style.visibility = 'hidden';
+  document.getElementById('changeDataset').onclick = async () => {
+    await createTable();
   };
 })();

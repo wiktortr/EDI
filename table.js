@@ -1,3 +1,6 @@
+const TABLE_HEADERS = 'table_headers';
+const TABLE_BODY = 'table_body';
+
 function capitalizeHeader(header) {
   return header[0].toUpperCase() + header.slice(1).toLowerCase();
 }
@@ -31,7 +34,7 @@ function createRow(rowData) {
 }
 
 export function tableBuilder(rows) {
-  const tableHeadersElement = document.getElementById('table_headers');
+  const tableHeadersElement = document.getElementById(TABLE_HEADERS);
 
   createTableHeaderNames(rows)
     .map(createHeaderElement)
@@ -41,16 +44,19 @@ export function tableBuilder(rows) {
 }
 
 export const appendToTable = (rows) => {
-  const tableBody = document.getElementById('table_body');
+  const tableBody = document.getElementById(TABLE_BODY);
   rows.map(createRow).forEach((row) => tableBody.append(row));
 };
 
-export const getTableData = async (api_url, storageKey = 'table_data') => {
-  const cachedData = localStorage.getItem(storageKey);
-  if (cachedData) {
-    return JSON.parse(cachedData);
-  }
-  const data = await (await fetch(api_url)).json();
-  localStorage.setItem(storageKey, JSON.stringify(data));
-  return data;
+export const getTableData = async (api_url) => {
+  return await (await fetch(api_url)).json();
+};
+
+const clearElement = (elementId) => {
+  document.getElementById(elementId).innerHTML = '';
+};
+
+export const clearTable = () => {
+  clearElement(TABLE_HEADERS);
+  clearElement(TABLE_BODY);
 };

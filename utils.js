@@ -1,3 +1,5 @@
+import { NUMBER_OF_DATASETS, API_URL_BASE, DATA_FORMAT } from './consts.js';
+
 export const zeroPad = (num, places) => String(num).padStart(places, '0');
 
 export const randomValue = (min, max) => {
@@ -27,3 +29,16 @@ export const chartBuilder = (ctx, type, labels, datasets) =>
       },
     },
   });
+
+function* datasetNumberGenerator() {
+  let dataset = 0;
+  while (true) {
+    yield dataset;
+    dataset = (dataset + 1) % NUMBER_OF_DATASETS;
+  }
+}
+
+const nextJsonNumberGen = datasetNumberGenerator();
+
+export const getNextApiUrl = () =>
+  `${API_URL_BASE}${nextJsonNumberGen.next().value}.${DATA_FORMAT}`;
