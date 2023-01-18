@@ -30,15 +30,4 @@ export const chartBuilder = (ctx, type, labels, datasets) =>
     },
   });
 
-function* datasetNumberGenerator() {
-  let dataset = 0;
-  while (true) {
-    yield dataset;
-    dataset = (dataset + 1) % NUMBER_OF_DATASETS;
-  }
-}
-
-const nextJsonNumberGen = datasetNumberGenerator();
-
-export const getNextApiUrl = () =>
-  `${API_URL_BASE}${nextJsonNumberGen.next().value}.${DATA_FORMAT}`;
+export const getApiUrl = (number) => `${API_URL_BASE}${number}.${DATA_FORMAT}`;

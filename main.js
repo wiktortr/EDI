@@ -3,8 +3,9 @@ import {
   CHART_1_DATASETS,
   YEARS,
   CHART_2_DATASETS,
+  NUMBER_OF_DATASETS,
 } from './consts.js';
-import { chartBuilder, getNextApiUrl } from './utils.js';
+import { chartBuilder, getApiUrl } from './utils.js';
 import {
   appendToTable,
   clearTable,
@@ -12,11 +13,11 @@ import {
   tableBuilder,
 } from './table.js';
 
-const createTable = async () => {
+const createTable = async (number = 0) => {
   clearTable();
   document.getElementById('spinner').style.visibility = '';
   const showMoreData = document.getElementById('showMoreData');
-  const data = await getTableData(getNextApiUrl());
+  const data = await getTableData(getApiUrl(number));
   tableBuilder(data.slice(0, 10));
   document.getElementById('spinner').style.visibility = 'hidden';
 
@@ -43,7 +44,9 @@ const createTable = async () => {
 
   await createTable();
 
-  document.getElementById('changeDataset').onclick = async () => {
-    await createTable();
-  };
+  for (const number of Array(NUMBER_OF_DATASETS).keys()) {
+    document.getElementById(`changeDataset${number}`).onclick = async () => {
+      await createTable(number);
+    };
+  }
 })();
