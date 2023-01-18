@@ -17,6 +17,7 @@ const createTable = async (number = 0) => {
   clearTable();
   document.getElementById('spinner').style.visibility = '';
   const showMoreData = document.getElementById('showMoreData');
+  showMoreData.style.visibility = '';
   const data = await getTableData(getApiUrl(number));
   tableBuilder(data.slice(0, 10));
   document.getElementById('spinner').style.visibility = 'hidden';
