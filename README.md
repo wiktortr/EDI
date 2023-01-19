@@ -61,3 +61,4 @@ AC: na tej stronnie powinna się znajdować informacja o autorach taka jak: zdj�
 
 **Task-8**: Wprowadzić dynamiczne generowanie wykresów\
 AC: Po załadowaniu strony dymyślnie generowane są wykresy na bazie pierwszego zbioru danych. Po kliknięciu przycisku należy wygenerować wykres na bazie danych odpowiadających danemu przyciskowi.
+
