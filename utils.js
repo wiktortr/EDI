@@ -4,6 +4,8 @@ import {
   DATA_FORMAT,
   minMarketValueByCountry,
   maxMarketValueByCountry,
+  uniqueNationalities,
+  sumGoalsByCountry,
 } from './consts.js';
 
 export const zeroPad = (num, places) => String(num).padStart(places, '0');
@@ -30,6 +32,17 @@ export const getChart1Data = (label, type, arr) => ({
       case 'max':
         return maxMarketValueByCountry(arr);
     }
+  })(),
+  borderWidth: 1,
+});
+
+export const getChart2Data = (label, arr, countries) => ({
+  label,
+  data: (() => {
+    let result = [];
+    for (let i = 0; i < countries.length; i++)
+      result.push(sumGoalsByCountry(arr, countries[i]));
+    return result;
   })(),
   borderWidth: 1,
 });

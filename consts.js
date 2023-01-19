@@ -3,19 +3,9 @@ import {
   datasetGenerator,
   getApiUrl,
   getChart1Data,
+  getChart2Data,
   zeroPad,
 } from './utils.js';
-
-export const COUNTRIES = [
-  'Brazylia',
-  'Francja',
-  'Niemcy',
-  'Włochy',
-  'Holandia',
-  'Norwegia',
-  'Polska',
-  'Portugalia',
-];
 
 //Get all unique countries from given dataset (json)
 
@@ -54,22 +44,35 @@ export const maxMarketValueByCountry = (arr) => {
   }, {});
 };
 
+//sum of all goals by country
+export const sumGoalsByCountry = (arr, country) => {
+  const countryPlayers = arr.filter((player) => player.nationality === country);
+  return countryPlayers.reduce((acc, player) => acc + player.goals, 0);
+};
+
 export const YEARS = new Array(10)
   .fill(0)
   .map((_, i) => `20${zeroPad(13 + i, 2)}r`);
 
-export const CHART_1_DATASETS = [
-  datasetGenerator('Najniższa W. Rynkowa', COUNTRIES.length, 5000, 10000),
-  datasetGenerator('Najwyższa W. Rynkowa', COUNTRIES.length, 5000, 100000),
-];
-
-export const getChart1Dataset = (arr) => {
+// Get data for chart 1 from json file
+export const getChart1DataSet = (arr) => {
   return [
     getChart1Data('Najniższa W. Rynkowa', 'min', arr),
     getChart1Data('Najwyższa W. Rynkowa', 'max', arr),
   ];
 };
 
+// Get data for chart 2 from json file
+// export const getChart2DataSet = (arr, number) => {
+//   let countries = uniqueNationalities(number);
+//   let results = [];
+//   for (let country in countries) results.push(goalsByCountry(arr, country));
+//   return results;
+// };
+
+export const getChart2DataSet = (arr, countries) => {
+  return [getChart2Data('Liczba, goli', arr, countries)];
+};
 export const CHART_2_DATASETS = [
   datasetGenerator('Brazylia', YEARS.length, 1, 5),
   datasetGenerator('Francja', YEARS.length, 3, 10),
