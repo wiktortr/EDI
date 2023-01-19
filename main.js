@@ -1,9 +1,10 @@
 import {
-  COUNTRIES,
-  CHART_1_DATASETS,
   YEARS,
   CHART_2_DATASETS,
   NUMBER_OF_DATASETS,
+  uniqueNationalities,
+  getChart1DataSet,
+  getChart2DataSet,
 } from './consts.js';
 import { chartBuilder, getApiUrl } from './utils.js';
 import {
@@ -32,15 +33,18 @@ const createTable = async (number = 0) => {
   chartBuilder(
     document.getElementById('chart1'),
     'bar',
-    COUNTRIES,
-    CHART_1_DATASETS
+    await uniqueNationalities(0),
+    await getChart1DataSet(await getTableData(getApiUrl(0)))
   );
 
   chartBuilder(
     document.getElementById('chart2'),
-    'line',
-    YEARS,
-    CHART_2_DATASETS
+    'pie',
+    await uniqueNationalities(0),
+    await getChart2DataSet(
+      await getTableData(getApiUrl(0)),
+      await uniqueNationalities(0)
+    )
   );
 
   await createTable();
@@ -48,6 +52,22 @@ const createTable = async (number = 0) => {
   for (const number of Array(NUMBER_OF_DATASETS).keys()) {
     document.getElementById(`changeDataset${number}`).onclick = async () => {
       await createTable(number);
+
+      chartBuilder(
+        document.getElementById('chart1'),
+        'bar',
+        await uniqueNationalities(number),
+        await getChart1DataSet(await getTableData(getApiUrl(number)))
+      );
+      chartBuilder(
+        document.getElementById('chart2'),
+        'pie',
+        await uniqueNationalities(number),
+        await getChart2DataSet(
+          await getTableData(getApiUrl(number)),
+          await uniqueNationalities(number)
+        )
+      );
     };
   }
 })();
