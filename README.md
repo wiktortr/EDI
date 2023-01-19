@@ -58,3 +58,6 @@ AC: podstawowa stopka Kod trzeba umieścić w `index.html` i `about_us.html`.
 **Task-7**: Stworzyć podstronę about us\
 (task dla zwiększenia atrakcyjności i profesjonalnego wyglądu strony)
 AC: na tej stronnie powinna się znajdować informacja o autorach taka jak: zdjęcie, imię nazwisko, krótkie opisy, link do githuba. Kod trzeba umieścić w `about_us.html`.
+
+**Task-8**: Wprowadzić dynamiczne generowanie wykresów\
+AC: Po załadowaniu strony dymyślnie generowane są wykresy na bazie pierwszego zbioru danych. Po kliknięciu przycisku należy wygenerować wykres na bazie danych odpowiadających danemu przyciskowi.
